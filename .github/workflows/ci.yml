@@ -1,0 +1,21 @@
+name: CI
+on:
+  push:
+jobs:
+  build:
+    name: ${{ matrix.name }}-${{ matrix.framework }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - os: windows-2019
+            name: Windows
+          - os: ubuntu-20.04
+            name: Linux
+        framework: [ net472, netcoreapp3.1, net6.0 ]
+        exclude:
+          - os.name: Linux
+            framework: net472
+      fail-fast: false
+    steps:
+      - run: echo "hi"
