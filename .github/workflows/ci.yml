@@ -14,7 +14,8 @@ jobs:
             name: Linux
         framework: [ net472, netcoreapp3.1, net6.0 ]
         exclude:
-          - job.name: Windows
+          - job:
+              name: Windows
             framework: net472
       fail-fast: false
     steps:
