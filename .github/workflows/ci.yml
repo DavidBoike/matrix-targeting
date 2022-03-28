@@ -12,7 +12,7 @@ jobs:
           - { platform: ubuntu-20.04, name: Linux }
         framework: [ net472, netcoreapp3.1, net6.0 ]
         exclude: 
-          - os: { name: Windows }
+          - os: { name: Linux }
             framework: net472
       fail-fast: false
     steps:
