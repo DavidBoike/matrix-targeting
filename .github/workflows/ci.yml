@@ -3,7 +3,7 @@ on:
   push:
 jobs:
   build:
-    name: ${{ matrix.name }}-${{ matrix.framework }}
+    name: ${{ matrix.os.name }}-${{ matrix.framework }}
     runs-on: ${{ matrix.job.os }}
     strategy:
       matrix:
