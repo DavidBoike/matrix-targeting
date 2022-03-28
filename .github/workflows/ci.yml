@@ -9,12 +9,10 @@ jobs:
       matrix:
         os:
           - { platform: windows-2019, name: Windows }
-          - platform: ubuntu-20.04
-            name: Linux
+          - { platform: ubuntu-20.04, name: Linux }
         framework: [ net472, netcoreapp3.1, net6.0 ]
-        exclude:
-          - os:
-              name: Windows
+        exclude: 
+          - os: { name: Windows }
             framework: net472
       fail-fast: false
     steps:
