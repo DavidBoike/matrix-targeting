@@ -7,15 +7,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os:
+        job:
           - os: windows-2019
             name: Windows
           - os: ubuntu-20.04
             name: Linux
         framework: [ net472, netcoreapp3.1, net6.0 ]
         exclude:
-          - os.name: Linux
+          - os: Linux
             framework: net472
       fail-fast: false
     steps:
-      - run: echo "hi"
+      - run: echo "${{ matrix.job.name}}-${{ matrix.framework }} on ${{ matrix.job.os }}"
