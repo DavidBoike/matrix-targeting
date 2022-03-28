@@ -1,22 +1,22 @@
 name: CI
 on:
   push:
-jobs:
+oss:
   build:
     name: ${{ matrix.os.name }}-${{ matrix.framework }}
-    runs-on: ${{ matrix.job.os }}
+    runs-on: ${{ matrix.os.platform }}
     strategy:
       matrix:
-        job:
-          - os: windows-2019
+        os:
+          - platform: windows-2019
             name: Windows
-          - os: ubuntu-20.04
+          - platform: ubuntu-20.04
             name: Linux
         framework: [ net472, netcoreapp3.1, net6.0 ]
         exclude:
-          - job:
+          - os:
               name: Windows
             framework: net472
       fail-fast: false
     steps:
-      - run: echo "${{ matrix.job.name}}-${{ matrix.framework }} on ${{ matrix.job.os }}"
+      - run: echo "${{ matrix.os.name}}-${{ matrix.framework }} on ${{ matrix.os.platform }}"
