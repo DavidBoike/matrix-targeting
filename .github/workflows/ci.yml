@@ -4,7 +4,7 @@ on:
 jobs:
   build:
     name: ${{ matrix.name }}-${{ matrix.framework }}
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.job.os }}
     strategy:
       matrix:
         job:
