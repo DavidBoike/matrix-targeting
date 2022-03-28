@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-oss:
+jobs:
   build:
     name: ${{ matrix.os.name }}-${{ matrix.framework }}
     runs-on: ${{ matrix.os.platform }}
